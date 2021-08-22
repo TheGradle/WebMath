@@ -46,6 +46,7 @@ body {
 
 nav {
   text-align: right;
+  margin-bottom: 30px;
 }
 
 /* SECTION EQUATION */
@@ -142,4 +143,11 @@ h2.title {
 footer {
   text-align: center;
   padding-bottom: 30px;
+}
+
+@media screen and (max-width: 425px) {
+  .equation,
+  .equation--input {
+    font-size: 46px;
+  }
 }
