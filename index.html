@@ -11,15 +11,32 @@
   <link rel="shortcut icon" href="img/favicon.png" type="image/png">
 </head>
 <body>
-  Кількість прикладів: <input type="number" id="number-of-equation"><br>
-  <span id="equation">5 + 5</span> = 
-  <input type="number" id="user-answer">
-  <button id="next-equation">Далі</button>
-  <div id="result-block" style="display: none;">
-    <div id="result"></div>
-    <button id="refresh">Спочатку</button>
+  <div class="settings" id="settings">
+    <div class="settings-inner">
+      <span class="settings--close" id="close-settings">&times;</span>
+      Кількість прикладів: <input type="number" id="number-of-equation" class="settings--input">
+      <button id="save-settings" class="btn" title="Натисніть сюди щоб зберегти налаштування">Зберігти</button>
+    </div>
   </div>
-  
+  <div class="wrap">
+    <nav>
+      <a href="#" class="link" id="open-settings">Налаштування</a>
+    </nav>
+    <section class="equation" id="equation-block">
+      <span id="equation"></span> =
+      <input type="number" id="user-answer" class="equation--input">
+      <button id="next-equation" class="btn" title="Натисніть сюди або натисніть ENTER">Далі</button>
+    </section>
+    <section class="result" id="result-block">
+      <h2 class="title">🎉 Результати</h2>
+      <div id="result" class="result--text"></div>
+      <button id="refresh" class="btn" title="Натисніть щоб почати вправу спочатку">Спочатку</button>
+    </section>
+  </div>
+  <footer>
+    Адамчук Іван © <a href="https://thegradle.github.io/" target="_blank" class="link">thegradle</a>
+  </footer>
+
   <script src="js/main.js"></script>
 </body>
 </html>
