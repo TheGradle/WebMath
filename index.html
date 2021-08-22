@@ -5,86 +5,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WebMath</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="img/favicon.png" type="image/png">
 </head>
 <body>
+  Кількість прикладів: <input type="number" id="number-of-equation"><br>
   <span id="equation">5 + 5</span> = 
   <input type="number" id="user-answer">
   <button id="next-equation">Далі</button>
-
-  <div id="result" style="display: none;">
-
+  <div id="result-block" style="display: none;">
+    <div id="result"></div>
+    <button id="refresh">Спочатку</button>
   </div>
   
-  <script>
-    var equation_span = document.getElementById("equation");
-    var user_answer = document.getElementById("user-answer");
-    var next_equation_btn = document.getElementById("next-equation");
-    var result = document.getElementById("result");
-
-    var counter = 0;
-    var number = 5;
-
-    function getRandomInt(max)
-    {
-      return Math.floor(Math.random() * max);
-    }
-
-    function MakeEquation()
-    {
-      let a = getRandomInt(10);
-      let b = getRandomInt(10);
-      let func = (getRandomInt(2) == 1) ? " + " : " - ";
-
-      if(func == " + " && a + b > 10)
-      {
-        return MakeEquation();
-      }
-      else if(func == " - " && a - b < 0)
-      {
-        return MakeEquation();
-      }
-
-      return [a + func + b, (func == " + ") ? a + b: a - b];
-    }
-
-    function WriteEquation()
-    {
-      equation = MakeEquation();
-
-      equation_span.innerHTML = equation[0];
-      user_answer.setAttribute("answer", equation[1]);
-    }
-
-    document.addEventListener("DOMContentLoaded", function()
-    {
-      WriteEquation();
-    });
-
-    next_equation_btn.addEventListener("click", function()
-    {
-      counter++;
-      result.innerHTML += ((user_answer.value == user_answer.getAttribute("answer")) ? "✅ " : "❌ ") + equation_span.innerHTML + " = " + user_answer.value + "<br>";
-
-      if(number > counter)
-      {
-        WriteEquation();
-      }
-      else
-      {
-        result.style.display = "block";
-      }
-      
-      user_answer.value = "";
-    });
-
-    user_answer.addEventListener("keyup", function(event)
-    {
-      if (event.keyCode === 13)
-      {
-        event.preventDefault();
-        next_equation_btn.click();
-      }
-});
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
